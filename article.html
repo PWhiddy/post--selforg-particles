@@ -1,14 +1,58 @@
 <d-article>
-<h1>A Minimalist Google Docs workflow for Distill.pub</h1>
-<p>The typical process of a Distill.pub article creation requires all contributors and editors to be familiar with version control (specifically Git) and web development, which sets an unnecessarily high barrier for entry to accept edits and suggestions from reviewers. This repository contains an article template and instructions for setting up a workflow based on Google Docs which exports the article html to GitHub. The workflow also uses a minimalistic Python web-server that automatically fetches new changes from GitHub and recompiles the article.</p>
-
-<ul><li>Fork and rename the <u>https://github.com/znah/gdocs_distill_template</u> repository.</li></ul>
-<ul><li>Make a copy of this Google Document for the article.</li></ul>
-<ul><li>Update “github_repo” variable in above table to point to your GitHub repository.</li></ul>
-<ul><li>Press Tools->Script Editor. The new “Apps Script” tab will open.</li></ul>
-<ul><li>In the Script Editor tab replace the content of the “Code.gs” script with the code from “bin/gdoc2html.gs”. You can also rename “Untitled project” into something meaningful.</li></ul>
-<ul><li>Go back to the document tab and reload it. The new “HTML Export” menu will appear.</li></ul>
-
+<p>(demo maybe similar to this)</p>
 <p></p>
+
+<p><u>Introduction, background</u></p>
+<p>Creating computational models of complex dynamical systems is a recurring challenge across nearly all domains of science, and generally requires significant research and engineering. What if it were possible to learn models directly from data that are efficient enough for interactive applications?</p>
+
+<p>It turns out that a surprising number of these systems can be well described by rules of local interactions. Physical systems ranging from chemical compounds to global climate, and biological systems ranging from individual cells to social systems all exhibit high-level behaviours which are the product of interactions between many tiny components. This favoritism of local interactions is actually very natural. In physics, the “principle of locality”, loosely says that all interactions between objects are fundamentally local, and that distant interactions must be mediated by local interactions. Even phenomena which appear to evolve instantaneously such as light and gravity are most accurately modeled as propagating waves. It follows that models which capture dynamics more locally are more accurate and efficiently represented.</p>
+
+<p>There is a long history of distilling the dynamics of physical systems into compact representations like differential equations. It is common to harvest the high level behaviors of these representations using numerical integration. One typical approach is to discretize space into a tensor and integrate by computing local interactions between adjacent elements. This technique is referred to as a grid, cell, or lattice method. This approach has been particularly successful for fluid simulations. </p>
+<p>It is natural to wonder if there are cases where the local interaction rules are unknown, but could be learned from data. (Forces model to learn a field theory)</p>
+<p>Previous work in this area learns grid-based models ... [3-5].</p>
+
+<p>Interest because of computational scalability. </p>
+
+<p>The neural CA framework is a useful system for automatically modeling these systems. </p>
+
+<p>Cellular automata are effective models of physical systems, even those composed of discrete particles.</p>
+
+<p>(Overview of learning the dynamics of physical systems). These model architectures are specialized...</p>
+<p>Previous work demonstrates learning the dynamics of a system end-to-end from video [6-7].</p>
+
+<p><u>Model</u></p>
+<p>Mostly the same as the original model in [1]. No alive/alpha masking, and initial states are random in each batch.</p>
+
+<p><u>Chosen Physical System</u></p>
+<p>The modeled system chosen for this experiment is a frictionless billiards-like particle system. This has a few desirable properties: local interactions between particles, subtle collision dynamics, and easy assessment of accuracy when visualized. </p>
+<p>Concretely, the motion of one particle due to another is specified by the differential equation:</p>
+
+<p><u>latex</u></p>
+
+<p>Where <strong>r</strong> is the difference vector between the two, k is a force scaling constant, and p_s is the diameter of the billiard particles.</p>
+<p>This system can be integrated with satisfactory accuracy using simple forward Euler integration as shown in the pseudo-python below:</p>
+<p></p>
+<p>Even though this naive implementation has complexity O(n^2), it can be used to train a cellular automata model which inherently has complexity O(n).</p>
+<p>The last step is to render the particle system so that we can optimize the CA model using pixel MSE loss. Expressing the velocity of each particle in polar coordinates, and mapping this into HSV color space using hue=theta, saturation=r, and value=constant, velocities can be cleanly encoded in the RGB channels of the model’s state. This mapping from R^2 -> rgb is intuitively visualized as a color wheel:</p>
+<p></p>
+<p>Note that this conversion limits the maximum velocity which can be encoded, but this is okay because any CA system naturally already has a maximum speed (one cell per step) which information can propagate. </p>
+<p>Putting this together, our reference particle system looks like this:</p>
+<p>(remove interpolation, compression :p)</p>
+
+
+<p><u>Training Setup, Results</u></p>
+<p>Todo</p>
+<p>(include videos of system evolution at intermediate training steps)</p>
+<p>(Include model falling back to probability distributions when optimized over too many time steps)</p>
+
+<p><u>Discussion</u></p>
+<p>Todo</p>
+<p>(Comparison of particle propagation to gliders and other known CA phenomena. Does any previous work demonstrate elastic collisions between discrete particles/entities like this)</p>
+
+
+<p>Extra experiments to add to this:</p>
+<p>Ablation testing (# state channels, hidden size, …)</p>
+<p>Model other systems (springs/softbody, fluid, games/applications)</p>
+<p>Additional model constraints to increase model accuracy/learning efficiency (hamiltonian or lagrangian constraints)</p>
 
 </d-article>
