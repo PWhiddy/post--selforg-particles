@@ -41,7 +41,7 @@ def parse_byte_range(byte_range):
     return first, last
 
 def write_file(fname, fout):
-    for s in open(fname):
+    for s in open(fname, encoding="utf8"):
         if "___MODELS___" in s:
             fout.write(s.replace("___MODELS___", str(glob.glob("*.json"))))
             continue
