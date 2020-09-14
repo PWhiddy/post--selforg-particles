@@ -2,14 +2,33 @@
 <p>(demo maybe similar to this)</p>
 <p></p>
 
+<p>[Add intro here segueing from biological systems, cells, and previous articles to physical systems based on grids/cells/lattices. Could talk about particles as a form of discrete, long range message passing between cells]</p>
+
+<p>Growing Neural Cellular Automata </p>
+
+<p>Computational models are essential tools for understanding and predicting the behaviour of physical systems in many domains of science. They generally require significant research and engineering to create, and thus can be a limiting factor when studying these systems (possible to cite something here?). But what if it is possible to learn them automatically from data? Recently significant progress has been made in this area (cite fluid sim research, cosmology, hamiltonian nn, symbolic sim, gamegan, ect. Any survey papers?), and it appears to be a promising direction of research. There is a particular type of model which is often used across domains of science ranging from particle physics, chemistry, fluid dynamics, biology, meteorology, and cosmology. This model goes by different sames Cellular models are particularly interesting because they possess a minimal set of inductive biases that match physical systems. A common goal for theoretical models is to be invariant in space and time. </p>
+
+<p>Useful properties of physical models: invariant in space and time. Locality.</p>
+<p>Graphs with uniform structure satisfy all of these properties. They go by many different names such as cellular, grid, or lattice methods are already widely used in science (research some good citation(s) for this). </p>
+
+<p>The way we interact with computational models varies greatly. Some models are run on large clusters or supercomputers for weeks and their results may be analyzed for months or years. Some run in real-time on consumer devices and provide an instantaneous feedback loop. </p>
+
+<p>Experiments</p>
+
+<p>I</p>
+<p>Modeling discrete particles with local interactions</p>
+
+<p>II</p>
+<p>Modeling discrete particles with long range interactions</p>
+
+<p>III</p>
+<p>Modeling a mesh of particles</p>
+
 <p><u>Introduction, background</u></p>
 <p>Creating computational models of complex dynamical systems is a recurring challenge across nearly all domains of science, and generally requires significant research and engineering. What if it were possible to learn models directly from data that are efficient enough for interactive applications?</p>
 
 <p>It turns out that a surprising number of these systems can be well described by rules of local interactions. Physical systems ranging from chemical compounds to global climate, and biological systems ranging from individual cells to social systems all exhibit high-level behaviours which are the product of interactions between many tiny components. This favoritism of local interactions is actually very natural. In physics, the “principle of locality”, loosely says that all interactions between objects are fundamentally local, and that distant interactions must be mediated by local interactions. Even phenomena which appear to evolve instantaneously such as light and gravity are most accurately modeled as propagating waves. It follows that models which capture dynamics more locally are more accurate and efficiently represented.</p>
 
-<p>There is a long history of distilling the dynamics of physical systems into compact representations like differential equations. It is common to harvest the high level behaviors of these representations using numerical integration. One typical approach is to discretize space into a tensor and integrate by computing local interactions between adjacent elements. This technique is referred to as a grid, cell, or lattice method. This approach has been particularly successful for fluid simulations. </p>
-<p>It is natural to wonder if there are cases where the local interaction rules are unknown, but could be learned from data. (Forces model to learn a field theory)</p>
-<p>Previous work in this area learns grid-based models ... [3-5].</p>
 
 <p>Interest because of computational scalability. </p>
 
@@ -54,5 +73,11 @@
 <p>Ablation testing (# state channels, hidden size, …)</p>
 <p>Model other systems (springs/softbody, fluid, games/applications)</p>
 <p>Additional model constraints to increase model accuracy/learning efficiency (hamiltonian or lagrangian constraints)</p>
+
+
+<p>Brainstorming</p>
+
+
+
 
 </d-article>
