@@ -41,12 +41,9 @@ def parse_byte_range(byte_range):
     return first, last
 
 def write_file(fname, fout):
-    for s in open(fname, encoding="utf8"):
-        if "___MODELS___" in s:
-            fout.write(s.replace("___MODELS___", str(glob.glob("*.json"))))
-            continue
-        if s.startswith('%% '):
-            fn = '../'+s.split()[1]
+    for s in open(fname):
+        if s.strip().startswith('{% include '):
+            fn = '../'+s.split()[2]
             write_file(fn, fout)
         else:
             fout.write(s)

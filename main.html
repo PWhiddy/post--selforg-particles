@@ -20,7 +20,7 @@
           "affiliationURL": ""
         },
         {
-          "author": "Alexander Mordvintsev",
+          "author": "Alexander Mordvinstev",
           "authorURL": "https://znah.net/",
           "affiliation": "Google",
           "affiliationURL": "https://ai.google/"
@@ -210,13 +210,6 @@
     }
 
   </style>
-  <script>
-  // hack to edit font size in code snippets. guaranteed a better way to do 
-  // this, but I'm not a webdev
-  window.onload = function() {
-    setTimeout(() => { document.querySelectorAll("d-code").forEach(function(e) {e.shadowRoot.querySelector('#code-container').style.fontSize = "0.7em"}); }, 3000);
-  }
-  </script>
   <d-title>
     <h1>Neural CA Particle Systems</h1>
     <p>Modeling Physical systems with Neural Cellular Automata</p>
@@ -226,7 +219,7 @@
 <d-byline></d-byline>
 
 
-%% article.html
+{% include article.html %}
 
   <d-bibliography src="bibliography.bib"></d-bibliography>
 </body>
