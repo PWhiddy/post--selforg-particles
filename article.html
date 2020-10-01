@@ -1,12 +1,14 @@
 <d-article>
 <p>(demo maybe similar to this)</p>
-<p></p>
+
 
 <p>[Add intro here segueing from biological systems, cells, and previous articles to physical systems based on grids/cells/lattices. Could talk about particles as a form of discrete, long range message passing between cells]</p>
 
+<p>The Neural Cellular Automata model has been shown </p>
+
 <p>Growing Neural Cellular Automata </p>
 
-<p>Computational models are essential tools for understanding and predicting the behaviour of physical systems in many domains of science. However they generally require significant research and engineering to create, and thus can be a limiting factor when studying these systems (possible to cite something here?). But what if it is possible to learn them automatically from data? Recently significant progress has been made in this area (cite fluid sim research, cosmology, hamiltonian nn, symbolic sim, gamegan, ect. Any survey papers?), and it appears to be a promising direction of research. There is a particular type of model which is often used across domains of science ranging from particle physics, chemistry, fluid dynamics, biology, meteorology, and cosmology. This model goes by different sames Cellular models are particularly interesting because they possess a minimal set of inductive biases that match physical systems. A common goal for theoretical models is to be invariant in space and time. </p>
+<p>Computational models are essential tools for understanding and predicting the behaviour of physical systems in many domains of science. However they generally require significant research and engineering to create, and thus can be a limiting factor when studying these systems (possible to cite something here?). But what if it is possible to learn them automatically from data? Recently significant progress has been made in this area (cite fluid sim research, cosmology, hamiltonian nn, symbolic sim, gamegan, ect. Any survey papers?), and it appears to be a promising direction of research. There is a general class of models which are often used across domains of science ranging from particle physics, chemistry, fluid dynamics, biology, meteorology, and cosmology. This model goes by different names... Cellular models are particularly interesting because they possess a minimal set of inductive biases that match physical systems. A common goal for theoretical models is to be invariant in space and time. </p>
 
 <p>Useful properties of physical models: invariant in space and time. Locality.</p>
 <p>Graphs with uniform structure satisfy all of these properties. They go by many different names such as cellular, grid, or lattice methods are already widely used in science (research some good citation(s) for this). </p>
@@ -49,10 +51,9 @@
 <p>Where <strong>r</strong> is the difference vector between the two, k is a force scaling constant, and p_s is the diameter of the billiard particles.</p>
 <p>This system can be integrated with satisfactory accuracy using simple forward Euler integration as shown in the pseudo-python below:</p>
 <p></p>
-<p>Even though this naive implementation has complexity O(n^2), it can be used to train a cellular automata model which inherently has complexity O(n).</p>
 <p>The last step is to render the particle system so that we can optimize the CA model using pixel MSE loss. Expressing the velocity of each particle in polar coordinates, and mapping this into HSV color space using hue=theta, saturation=r, and value=constant, velocities can be cleanly encoded in the RGB channels of the model’s state. This mapping from R^2 -> rgb is intuitively visualized as a color wheel:</p>
 <p></p>
-<p>Note that this conversion limits the maximum velocity which can be encoded, but this is okay because any CA system naturally already has a maximum speed (one cell per step) which information can propagate. </p>
+<p>Note that this conversion limits the maximum velocity which can be encoded, but this is okay because any CA system naturally already has a maximum speed (one cell per step) which information can propagate.</p>
 <p>Putting this together, our reference particle system looks like this:</p>
 <p>(remove interpolation, compression :p)</p>
 
@@ -69,6 +70,8 @@
 <p>III</p>
 <p>Modeling a mesh of particles</p>
 
+<p></p>
+
 <p><u>Discussion</u></p>
 <p>Todo</p>
 <p>(Comparison of particle propagation to gliders and other known CA phenomena. Does any previous work demonstrate elastic collisions between discrete particles/entities like this)</p>
@@ -83,6 +86,31 @@
 <p>Brainstorming</p>
 
 
+
+<p>Refs:</p>
+<ul><li>Growing Neural Cellular Automata</li></ul>
+<p><u>https://distill.pub/2020/growing-ca/</u></p>
+<ul><li>Accelerating Eulerian Fluid Simulation With Convolutional Networks </li></ul>
+<p><u>https://arxiv.org/pdf/1607.03597.pdf</u></p>
+<ul><li>“Deep Fluids: A Generative Network for Parameterized Fluid Simulations”</li></ul>
+<p><u>http://www.byungsoo.me/project/deep-fluids/</u></p>
+<ul><li>“CosmoFlow: Using Deep Learning to Learn the Universe at Scale”</li></ul>
+<p><u>https://ieeexplore.ieee.org/abstract/document/8665771</u></p>
+<ul><li>SE3-Nets: Learning Rigid Body Motion using Deep Neural Networks</li></ul>
+<p><u>https://arxiv.org/pdf/1606.02378v2.pdf</u></p>
+<ul><li>“Cellular automata as convolutional neural networks”</li></ul>
+<p><u>https://arxiv.org/pdf/1809.02942.pdf</u></p>
+<ul><li><u>Learning to Simulate Dynamic Environments with GameGAN</u></li></ul>
+<ul><li>Neural GPUs Learn Algorithms</li></ul>
+<p><u>https://arxiv.org/abs/1511.08228</u></p>
+<ul><li>Improving the Neural GPU Architecture for Algorithm Learning</li></ul>
+<p><u>https://arxiv.org/pdf/1702.08727.pdf</u></p>
+<ul><li>HAMILTONIAN GENERATIVE NETWORKS</li></ul>
+<p><u>https://arxiv.org/pdf/1909.13789.pdf</u></p>
+<ul><li>Lagrangian Neural Style Transfer for Fluids</li></ul>
+<p><u>https://arxiv.org/pdf/2005.00803.pdf</u></p>
+<ul><li>Reintegration tracking</li></ul>
+<p>https://michaelmoroz.github.io/Reintegration-Tracking/</p>
 
 
 </d-article>
